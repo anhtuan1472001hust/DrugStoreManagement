@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".feature.auth.ui.ConfigureAccountActivity">
+
+    <ImageView
+        android:id="@+id/img_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/banner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/customToolbar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_confirm_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_30"
+            style="@style/TextTitleSemiBoldBlueDark"
+            android:text="@string/activity_config_account_account_config_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_20"
+            android:layout_marginHorizontal="@dimen/size_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/customToolbar" />
+
+        <TextView
+            android:id="@+id/tv_otp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_30"
+            android:gravity="center"
+            android:text="@string/activity_config_account_alert_config_account_label"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_30"
+            style="@style/TextNormalBlueDark"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_confirm_register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner_layout"
+        app:layout_constraintVertical_bias="0.0"
+        android:fillViewport="true"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/card_background"
+            android:padding="@dimen/content_padding">
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/custom_edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp"
+                android:layout_marginTop="@dimen/size_19"
+                android:background="@drawable/custom_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/eye_image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_eye_password"
+                app:layout_constraintEnd_toEndOf="@id/custom_edt_password"
+                app:layout_constraintTop_toTopOf="@id/custom_edt_password"
+                app:layout_constraintBottom_toBottomOf="@id/custom_edt_password"
+                android:layout_marginEnd="26dp"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/custom_edt_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="@string/activity_config_account_hint_confirm_password"
+                android:inputType="textPassword"
+                android:paddingLeft="26dp"
+                android:paddingRight="26dp"
+                android:layout_marginTop="@dimen/size_19"
+                android:background="@drawable/custom_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_edt_password" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/eye_image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_eye_password"
+                app:layout_constraintEnd_toEndOf="@id/custom_edt_confirm_password"
+                app:layout_constraintTop_toTopOf="@id/custom_edt_confirm_password"
+                app:layout_constraintBottom_toBottomOf="@id/custom_edt_confirm_password"
+                android:layout_marginEnd="26dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_send"
+                style="@style/ButtonBlue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_25"
+                android:text="@string/activity_config_account_text_btn_send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_edt_confirm_password" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

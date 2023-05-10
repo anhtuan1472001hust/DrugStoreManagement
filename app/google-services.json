@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "628723435383",
+    "firebase_url": "https://drug-store-management-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "drug-store-management",
+    "storage_bucket": "drug-store-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628723435383:android:f0a82310266dd3141f8372",
+        "android_client_info": {
+          "package_name": "bk.pttkhdt.drugstoremanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628723435383-0temom0q35u6iqpq6t0j0os6jgvrs7bs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bk.pttkhdt.drugstoremanager",
+            "certificate_hash": "d7aba7ef4b6dc20fabada8aacb67dc30513db7da"
+          }
+        },
+        {
+          "client_id": "628723435383-amr5f323lmht9pv8inqshb409fqvu5tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQxKSFCCPhUKytH_GOBwBX1fNs9lSQmUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628723435383-amr5f323lmht9pv8inqshb409fqvu5tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:scaleType="fitXY"
+    android:layout_height="match_parent"
+    tools:context=".feature.auth.ui.ValidateOtpActivity">
+
+    <ImageView
+        android:id="@+id/img_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:background="@drawable/app_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/customToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp" />
+        <TextView
+            android:id="@+id/tv_confirm_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextTitleSemiBoldBlueDark"
+            android:text="@string/activity_send_otp_confirm_otp_send_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_22"
+            android:layout_marginTop="@dimen/size_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/customToolbar" />
+
+        <TextView
+            android:id="@+id/tv_otp"
+            style="@style/TextNormalBlueDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/size_30"
+            android:text="@string/activity_send_otp_confirm_sentOtp_label"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_confirm_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextTitleSemiBoldBlueDark"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_otp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_title"
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@drawable/card_background"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.mukesh.OtpView
+                android:id="@+id/edtOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_38"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:itemBackground="@color/transparent"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_5"
+                android:textColor="@color/grey_dark_text"
+                app:itemCount="6"
+                app:itemHeight="@dimen/size_48"
+                app:itemRadius="@dimen/text_size_10"
+                app:itemSpacing="@dimen/size_5"
+                app:itemWidth="@dimen/size_44"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lineColor="@color/gray_3"
+                app:lineWidth="1.5dp"
+                app:viewType="rectangle" />
+            <TextView
+                android:id="@+id/btnRequestOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_20"
+                android:padding="@dimen/size_5"
+                android:text="@string/activity_send_otp_request_otp"
+                android:textAllCaps="false"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtOTP" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
