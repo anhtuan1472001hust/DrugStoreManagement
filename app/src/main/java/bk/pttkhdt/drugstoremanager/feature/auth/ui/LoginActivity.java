@@ -69,8 +69,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, AuthViewMo
         String password = binding.edtPassword.getText().toString();
         if (viewModel.checkValidPhoneNumber(phoneNumber) && viewModel.checkValidPassword(password)) {
             viewModel.loginRequest(phoneNumber, password);
-        } else {
-            showToastShort(getString(R.string.activity_config_account_alert_config_account_label));
         }
     }
 

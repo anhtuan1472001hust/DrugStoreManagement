@@ -54,6 +54,8 @@ public class AuthViewModel extends BaseViewModel {
 
     public SingleLiveEvent<Boolean> isAccountExisted = new SingleLiveEvent<>();
 
+    public SingleLiveEvent<Boolean> isLoginSession = new SingleLiveEvent<>();
+
 //    private final NetWorkExtensions netWorkExtensions = new NetWorkExtensions();
 
     private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -207,6 +209,7 @@ public class AuthViewModel extends BaseViewModel {
     }
 
     public void loginRequest(String phoneNumber, String password) {
+        setLoading(true);
 //        netWorkExtensions.checkInternetConnection(isConnect -> {
 //            if (isConnect) {
                 compositeDisposable.add(
@@ -247,6 +250,17 @@ public class AuthViewModel extends BaseViewModel {
 //            }
 //            return null;
 //        });
+
+    public void checkIsLogin(String userUid) {
+        compositeDisposable.add(
+                authRepository.checkIsLogin(userUid)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(isLogin -> {
+                            isLoginSession.setValue(isLogin);
+                        })
+        );
+    }
 }
 
 

@@ -14,4 +14,5 @@ public interface AuthRepository {
     Single<Boolean> verifyOtp(PhoneAuthCredential phoneAuthCredential,String otpCode);
     Single<User> login(String phoneNumber, String password);
     Single<Boolean> checkExistAccount(String phoneNumber);
+    Single<Boolean> checkIsLogin(String userUid);
 }
