@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_user_info">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                style="@style/headerText"
+                android:text="Account Info"
+                android:textSize="@dimen/text_size_20"
+                android:layout_marginBottom="20dp"/>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:layout_marginTop="@dimen/size_10"
+                    android:id="@+id/emailImageView"
+                    android:src="@drawable/icon_email"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_marginStart="@dimen/size_30"
+                    android:layout_toEndOf="@id/emailImageView"
+                    android:text="Email" />
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_marginStart="@dimen/size_28"
+                    android:layout_marginTop="@dimen/text_size_20"
+                    android:hint="someone@gmail.com"
+                    android:layout_toEndOf="@id/emailImageView"
+                    android:backgroundTint="@color/white" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:id="@+id/addressImageView"
+                    android:src="@drawable/icon_map"
+                    android:layout_marginTop="@dimen/size_10"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_marginStart="@dimen/size_30"
+                    android:layout_toEndOf="@id/addressImageView"
+                    android:text="Address" />
+
+                <EditText
+                    android:id="@+id/edt_address"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_marginStart="@dimen/size_28"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:hint="Địa chỉ"
+                    android:layout_toEndOf="@id/addressImageView"
+                    android:backgroundTint="@color/transparent" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+            <RelativeLayout style="@style/profileDetailsLayout">
+                <ImageView
+                    android:layout_marginTop="@dimen/size_10"
+                    android:id="@+id/dobImageView"
+                    android:src="@drawable/icon_calender"
+                    style="@style/profileDetailsImage" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:text="D.O.B"
+                    android:layout_marginStart="@dimen/size_30"
+                    android:layout_toEndOf="@id/dobImageView"/>
+
+                <EditText
+                    android:id="@+id/edt_dob"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_marginStart="@dimen/size_28"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_toEndOf="@id/dobImageView"
+                    android:backgroundTint="@color/transparent"
+                    android:hint="Ngày/tháng/năm sinh" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

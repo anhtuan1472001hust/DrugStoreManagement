@@ -1,6 +1,7 @@
 package bk.pttkhdt.drugstoremanager.core.base;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -113,7 +114,7 @@ public abstract class BaseActivity<VB extends ViewBinding, VM extends BaseViewMo
         fragmentTransaction.commit();
     }
 
-    protected void addFragment(BaseFragment<?,?> fragment, boolean animate) {
+    public void addFragment(BaseFragment<?,?> fragment, boolean animate) {
         addFragment(
                 fragment,
                 fragment.getTagFragment(),
@@ -124,7 +125,7 @@ public abstract class BaseActivity<VB extends ViewBinding, VM extends BaseViewMo
     /**
      * Ẩn bàn phím điện thoại
      */
-    private void hideKeyboard() {
+    public void hideKeyboard() {
         View view = getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -178,4 +179,5 @@ public abstract class BaseActivity<VB extends ViewBinding, VM extends BaseViewMo
         DialogLoadingViewBinding dialogLoadingViewBinding = DialogLoadingViewBinding.inflate(getLayoutInflater());
         getDialogLoading().setContentView(dialogLoadingViewBinding.getRoot());
     }
+
 }

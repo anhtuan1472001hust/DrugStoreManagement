@@ -1,5 +1,7 @@
 package bk.pttkhdt.drugstoremanager.feature.auth.repository;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import bk.pttkhdt.drugstoremanager.data.model.User;
+import bk.pttkhdt.drugstoremanager.utils.Constant;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
@@ -22,6 +25,7 @@ public class AuthRepositoryImpl implements AuthRepository{
     public Completable sendOtp(PhoneAuthOptions phoneAuthOptions) {
         return Completable.create( emitter -> {
             PhoneAuthProvider.verifyPhoneNumber(phoneAuthOptions);
+            Log.e("Hello",phoneAuthOptions.toString());
             emitter.onComplete();
                 }
         );
@@ -32,13 +36,13 @@ public class AuthRepositoryImpl implements AuthRepository{
         String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         return Completable.create(emitter -> {
-            firebaseDatabase.getReference("users")
+            firebaseDatabase.getReference(Constant.NODE_USER)
                     .child(userUid)
-                    .child("phoneNumber")
+                    .child(Constant.NODE_PHONE_NUMBER)
                     .setValue(user.getPhoneNumber());
-            firebaseDatabase.getReference("users")
+            firebaseDatabase.getReference(Constant.NODE_USER)
                     .child(userUid)
-                    .child("password")
+                    .child(Constant.NODE_PASSWORD)
                     .setValue(user.getPassword())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -68,8 +72,8 @@ public class AuthRepositoryImpl implements AuthRepository{
 
     @Override
     public Single<User> login(String phoneNumber, String password) {
-        return Single.create(emitter -> FirebaseDatabase.getInstance().getReference("users")
-                .orderByChild("phoneNumber")
+        return Single.create(emitter -> FirebaseDatabase.getInstance().getReference(Constant.NODE_USER)
+                .orderByChild(Constant.NODE_PHONE_NUMBER)
                 .equalTo(phoneNumber)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -95,12 +99,12 @@ public class AuthRepositoryImpl implements AuthRepository{
 
     @Override
     public Single<Boolean> checkExistAccount(String phoneNumber) {
-        return Single.create( emitter -> FirebaseDatabase.getInstance().getReference("users").addListenerForSingleValueEvent(new ValueEventListener() {
+        return Single.create( emitter -> FirebaseDatabase.getInstance().getReference(Constant.NODE_USER).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
-                            FirebaseDatabase.getInstance().getReference("users")
-                                    .orderByChild("phoneNumber")
+                            FirebaseDatabase.getInstance().getReference(Constant.NODE_USER)
+                                    .orderByChild(Constant.NODE_PHONE_NUMBER)
                                     .equalTo(phoneNumber)
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
@@ -132,7 +136,7 @@ public class AuthRepositoryImpl implements AuthRepository{
     @Override
     public Single<Boolean> checkIsLogin(String userUid) {
         return Single.create(emitter -> {
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userUid);
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constant.NODE_USER).child(userUid);
                     databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

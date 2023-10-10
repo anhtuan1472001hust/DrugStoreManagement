@@ -37,4 +37,14 @@
     <color name="profileEditTextColor">#707070</color>
     <color name="profileTextColor">#FF9301</color>
     <color name="blue_background">#6E95FB</color>
+    <color name="light_background">#F1F5FC</color>
+    <color name="blue_text">#007AFE</color>
+    <color name="background_color">#E5E5E5</color>
+    <color name="grey_text">#807C7C</color>
+    <color name="grey_image">#C4C4C4</color>
+    <color name="grey_text2">#ABAFB3</color>
+    <color name="cv_background_color">#EAEAEA</color>
+    <color name="edt_background_color">#E2E2E2</color>
+
+
 </resources>

@@ -7,7 +7,7 @@ import android.text.method.PasswordTransformationMethod;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import bk.pttkhdt.drugstoremanager.feature.main.ui.MainActivity;
+import bk.pttkhdt.drugstoremanager.feature.main.ui.activity.MainActivity;
 import bk.pttkhdt.drugstoremanager.R;
 import bk.pttkhdt.drugstoremanager.core.base.BaseActivity;
 import bk.pttkhdt.drugstoremanager.databinding.ActivityConfigAccountBinding;

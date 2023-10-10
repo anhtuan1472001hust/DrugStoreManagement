@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_34"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/dot_background">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_back_gray" />
+        </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAllCaps="true"
+            style="@style/TextBoldBlueDark"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold"
+            android:textColor="@color/blue_text"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/size_130"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/size_30"
+            android:layout_marginTop="@dimen/size_30"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_medicine_name"
+                style="@style/CustomHintText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/ic_edt_background"
+                android:hint="@string/medicine_name"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/size_10"
+                android:textColorHint="@color/blue_text"
+                android:textStyle="italic" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/quantity"
+                style="@style/CustomHintText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/size_30"
+                android:background="@drawable/ic_edt_background"
+                android:hint="@string/medicine_type"
+                android:maxLines="1"
+                android:inputType="number"
+                android:paddingHorizontal="@dimen/size_10"
+                android:textColorHint="@color/blue_text"
+                android:textStyle="italic" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/price"
+                style="@style/CustomHintText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/size_30"
+                android:inputType="number"
+                android:background="@drawable/ic_edt_background"
+                android:hint="@string/medicine_price"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/size_10"
+                android:textColorHint="@color/blue_text"
+                android:textStyle="italic" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/description"
+                style="@style/CustomHintText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_200"
+                android:layout_marginTop="@dimen/size_30"
+                android:background="@drawable/ic_edt_background"
+                android:hint="@string/medicine_description"
+                android:maxLines="6"
+                android:paddingHorizontal="@dimen/size_10"
+                android:textColorHint="@color/blue_text"
+                android:textStyle="italic" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_medicine"
+        android:layout_width="@dimen/size_130"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/add_medicine"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextNormalBlueDark"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginBottom="@dimen/size_40"
+        style="@style/ButtonBlue"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

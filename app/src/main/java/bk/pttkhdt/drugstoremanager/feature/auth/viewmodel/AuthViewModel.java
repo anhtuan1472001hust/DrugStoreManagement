@@ -217,8 +217,8 @@ public class AuthViewModel extends BaseViewModel {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(_userResponse::setValue, throwable -> {
+                                    setLoading(false);
                                     setErrorStringId(R.string.error_authentication);
-                                    Log.e("Error",throwable.getMessage());
                                 }
                                 )
                 );

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -7,23 +6,87 @@
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/card_background.xml" value="0.1835" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/custom_edit_text.xml" value="0.1835" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/ic_back.xml" value="0.1835" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/ic_drawer_icon.xml" value="0.1865" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/ic_hide_pass.xml" value="0.1835" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/ic_user_person_profile_block_account_circle_svgrepo_com.xml" value="0.1865" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/ic_visible_pass.xml" value="0.1835" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable-v24/icon_eye_password.xml" value="0.1835" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/app_background.xml" value="0.1835" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/bg_button_corner_30_blue.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/bg_button_corner_30_border_blue.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/bottom_nav_backdround.xml" value="0.2035" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/bottom_nav_background.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/card_background.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/card_view_background.xml" value="0.1235" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/card_view_shadow.xml" value="0.1185" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/custom_edit_text.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/edit_text_search.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_analysis.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_arrow_down.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_arrow_head.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_back.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_background_image.xml" value="0.1185" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_bg_home.xml" value="0.1205" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_bill.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_black_triangular_arrowhead_pointing_to_left_direction__2___1_.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_calender.xml" value="0.1205" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_cogwheel.xml" value="0.1185" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_down_arrow.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_drawer_icon.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_ellipse_110.xml" value="0.2035" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_hide_pass.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_home.xml" value="0.2035" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_medicine_store.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_notification.xml" value="0.1205" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_person.xml" value="0.1205" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_person_nav.xml" value="0.1185" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_rectangle_11.xml" value="0.1835" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_rectangle_5.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_rectangle_76.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_search.xml" value="0.1155" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_sell.xml" value="0.1255" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_vector.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_vector__3_.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_vector__4_.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_vector__7_.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/ic_visible_pass.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/icon_eye_password.xml" value="0.1865" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/item_checked_home.xml" value="0.203" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/item_home.xml" value="0.203" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/selector_bottom_navigation_item.xml" value="0.203" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/drawable/state_arrow.xml" value="0.1155" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_config_account.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_forget_pass.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_login.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_register.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_splash.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/activity_validate_otp.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/dialog_confirm_with_description.xml" value="0.25" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/dialog_loading_view.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/fragement_medicine_store.xml" value="0.264" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/fragment_account_info.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/fragment_home_dashboard.xml" value="0.176" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/header_item_bill.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_auto_complete_tv.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_bill.xml" value="0.4" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_detail_bill.xml" value="0.176" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_empty.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_header_bill.xml" value="0.25" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_index.xml" value="0.25" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_medicine.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_medicine_store.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_parameter.xml" value="0.25" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_sales.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/item_sales_detail.xml" value="0.2" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/Drugstoremanager/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

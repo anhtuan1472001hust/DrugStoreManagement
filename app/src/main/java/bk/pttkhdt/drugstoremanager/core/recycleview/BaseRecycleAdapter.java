@@ -12,7 +12,7 @@ import java.util.List;
 
 public abstract class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseViewHolder<?>> {
 
-    protected List<T> mData = new ArrayList<>();
+    public List<T> mData = new ArrayList<>();
 
 
     @NonNull
@@ -23,9 +23,13 @@ public abstract class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder<?> holder, int position, @NonNull List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
+    public void onBindViewHolder(@NonNull BaseViewHolder<?> holder, int position) {
         holder.bindData(position);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
     }
 
     @Override
