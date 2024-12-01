@@ -12,14 +12,20 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import bk.pttkhdt.drugstoremanager.R;
 import bk.pttkhdt.drugstoremanager.core.base.BaseActivity;
+import bk.pttkhdt.drugstoremanager.data.model.Bill;
 import bk.pttkhdt.drugstoremanager.data.model.Medicine;
 import bk.pttkhdt.drugstoremanager.data.model.Sales;
 import bk.pttkhdt.drugstoremanager.databinding.ActivityCreateBillBinding;
@@ -84,6 +90,27 @@ public class CreateBillActivity extends BaseActivity<ActivityCreateBillBinding, 
             sales.setTotal(totalSales);
             sales.setDate(formattedDate);
             viewModel.updateSales(sales);
+            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference(Constant.NODE_INDEX).child(Constant.NODE_BILL);
+
+            Log.e("Bello","listMedicine: " + listMedicine.size());
+            for (Medicine medicine : listMedicine) {
+                Bill bill = new Bill();
+                bill.setMedicineName(medicine.getName());
+                bill.setPrice(medicine.getPrice());
+                bill.setQuantity(medicine.getInventory());
+                if (bill != null) { // Đảm bảo object không null
+                    String uniqueKey = databaseRef.push().getKey(); // Tạo key duy nhất cho mỗi hóa đơn
+                    String lastFourChars = uniqueKey.substring(uniqueKey.length() - 4);
+                    bill.setId(lastFourChars);
+                    databaseRef.child(uniqueKey).setValue(bill)
+                            .addOnSuccessListener(aVoid -> {
+                                openActivity(MainActivity.class, Intent.FLAG_ACTIVITY_CLEAR_TASK, Intent.FLAG_ACTIVITY_CLEAR_TOP, Intent.FLAG_ACTIVITY_NEW_TASK);
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e("Firebase", "Lỗi khi thêm hóa đơn: " + e.getMessage());
+                            });
+                }
+            }
             showToastShort("Thanh toán thành công");
         });
 
@@ -96,8 +123,10 @@ public class CreateBillActivity extends BaseActivity<ActivityCreateBillBinding, 
             if (resultCode == RESULT_OK) {
                 if (data != null) {
                     Medicine medicine = (Medicine) data.getSerializableExtra(Constant.KEY_MEDICINE_EXTRA);
-                    listMedicine.clear();
-                    listMedicine.add(medicine);
+                    Set<Medicine> medicineSet = new HashSet<>();
+                    medicineSet.add(medicine);
+                    listMedicine.addAll(medicineSet); // Cập nhật lại danh sách
+                    Log.e("Bello","listMedicine1: " + listMedicine.size());
                     createBillAdapter.submitList(listMedicine);
                     for (int i = 0 ; i < listMedicine.size() ; i++) {
                         totalSales = totalSales + (listMedicine.get(i).getPrice() * listMedicine.get(i).getInventory());

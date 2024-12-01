@@ -133,8 +133,8 @@ public class MainRepositoryImpl implements MainRepository {
     @Override
     public Single<Boolean> updateBill(Bill bill) {
         return Single.create(emitter -> {
-            DatabaseReference databaseReference = firebaseDatabase.getReference(Constant.NODE_BILL);
-            databaseReference.child(String.valueOf(bill.getId())).setValue(bill)
+            DatabaseReference databaseReference = firebaseDatabase.getReference(Constant.NODE_INDEX).child(Constant.NODE_BILL);
+            databaseReference.setValue(bill)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             emitter.onSuccess(true);

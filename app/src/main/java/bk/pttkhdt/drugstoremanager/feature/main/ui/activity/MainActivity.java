@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -39,6 +40,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     protected Class<MainViewModel> getViewModelClass() {
         return MainViewModel.class;
+    }
+
+    @Override
+    public void addDataObserve() {
+        super.addDataObserve();
+        viewModel.isUpdateBillSuccess.observe(this, isUpdateBillSuccess -> {
+            if (isUpdateBillSuccess) {
+                Log.e("Bello","update bill success");
+                viewModel.getListBill();
+            }
+        });
+
     }
 
     @Override

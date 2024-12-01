@@ -40,7 +40,11 @@ public abstract class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseVie
     @SuppressLint("NotifyDataSetChanged")
     public void submitList(List<T> data) {
         if (data != null) {
-            mData.addAll(data);
+            for (T item : data) {
+                if (!mData.contains(item)) { // Chỉ thêm nếu chưa tồn tại trong mData
+                    mData.add(item);
+                }
+            }
         }
         notifyDataSetChanged();
     }
