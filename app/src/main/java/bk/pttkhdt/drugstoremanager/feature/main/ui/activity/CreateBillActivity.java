@@ -12,8 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -93,7 +96,51 @@ public class CreateBillActivity extends BaseActivity<ActivityCreateBillBinding, 
             DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference(Constant.NODE_INDEX).child(Constant.NODE_BILL);
 
             Log.e("Bello","listMedicine: " + listMedicine.size());
+
             for (Medicine medicine : listMedicine) {
+                // Cập nhật trường inventory tại index chỉ định
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference medicinesRef = database.getReference("medicines");
+
+                // Tìm thuốc có tên giống với medicine.getName()
+                medicinesRef.orderByChild("name").equalTo(medicine.getName())
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot snapshot) {
+                                boolean found = false;
+
+                                for (DataSnapshot child : snapshot.getChildren()) {
+                                    // Lấy inventory hiện tại của thuốc từ Firebase
+                                    Integer inventory = child.child("inventory").getValue(Integer.class);
+
+                                    if (inventory != null) {
+                                        // Tính toán inventory mới
+                                        long newInventory = inventory - medicine.getInventory();
+
+                                        // Cập nhật giá trị inventory mới vào Firebase
+                                        child.getRef().child("inventory").setValue(newInventory)
+                                                .addOnCompleteListener(task -> {
+                                                    if (task.isSuccessful()) {
+                                                        System.out.println("Cập nhật inventory thành công!");
+                                                    } else {
+                                                        System.out.println("Lỗi khi cập nhật: " + task.getException().getMessage());
+                                                    }
+                                                });
+                                        found = true;
+                                        break; // Dừng vòng lặp khi đã tìm thấy thuốc
+                                    }
+                                }
+
+                                if (!found) {
+                                    System.out.println("Không tìm thấy thuốc với tên: " + medicine.getName());
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError error) {
+                                System.out.println("Lỗi khi truy cập dữ liệu: " + error.getMessage());
+                            }
+                        });
                 Bill bill = new Bill();
                 bill.setMedicineName(medicine.getName());
                 bill.setPrice(medicine.getPrice());
