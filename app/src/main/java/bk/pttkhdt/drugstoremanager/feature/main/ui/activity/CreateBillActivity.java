@@ -32,6 +32,7 @@ import bk.pttkhdt.drugstoremanager.data.model.Bill;
 import bk.pttkhdt.drugstoremanager.data.model.Medicine;
 import bk.pttkhdt.drugstoremanager.data.model.Sales;
 import bk.pttkhdt.drugstoremanager.databinding.ActivityCreateBillBinding;
+import bk.pttkhdt.drugstoremanager.feature.main.ui.adapter.AutoCompleteTvAdapter;
 import bk.pttkhdt.drugstoremanager.feature.main.ui.adapter.CreateBillAdapter;
 import bk.pttkhdt.drugstoremanager.feature.main.viewmodel.MainViewModel;
 import bk.pttkhdt.drugstoremanager.utils.Constant;
@@ -44,7 +45,6 @@ public class CreateBillActivity extends BaseActivity<ActivityCreateBillBinding, 
     private final CreateBillAdapter createBillAdapter = new CreateBillAdapter();
 
     private long totalSales = 0 ;
-
     private final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
 
 
@@ -112,7 +112,7 @@ public class CreateBillActivity extends BaseActivity<ActivityCreateBillBinding, 
                                 for (DataSnapshot child : snapshot.getChildren()) {
                                     // Lấy inventory hiện tại của thuốc từ Firebase
                                     Integer inventory = child.child("inventory").getValue(Integer.class);
-
+                                    Integer price = child.child("price").getValue(Integer.class);
                                     if (inventory != null) {
                                         // Tính toán inventory mới
                                         long newInventory = inventory - medicine.getInventory();

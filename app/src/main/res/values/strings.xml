@@ -53,7 +53,7 @@
     <string name="name">Tên</string>
     <string name="quantity">Số lượng</string>
     <string name="id">ID</string>
-    <string name="price1">Thành tiền</string>
+    <string name="price1">Đơn giá</string>
     <string name="cancel">Hủy bỏ</string>
     <string name="not_exist_medicine">Thuốc không tồn tại</string>
     <string name="medicine_name">Tên thuốc</string>

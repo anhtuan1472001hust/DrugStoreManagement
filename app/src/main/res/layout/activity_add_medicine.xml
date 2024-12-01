@@ -57,17 +57,22 @@
             android:layout_marginTop="@dimen/size_30"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edt_medicine_name"
-                style="@style/CustomHintText"
+            <AutoCompleteTextView
+                android:id="@+id/edt_search_medicine"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/size_48"
+                style="@style/CustomHintText"
                 android:background="@drawable/ic_edt_background"
-                android:hint="@string/medicine_name"
+                android:paddingHorizontal="@dimen/size_15"
+                android:drawablePadding="15dp"
                 android:maxLines="1"
-                android:paddingHorizontal="@dimen/size_10"
+                android:hint="Tên thuốc"
                 android:textColorHint="@color/blue_text"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:dropDownListViewStyle="@style/DropDownMenuStyle"
+                android:inputType="text"
+                android:textColor="@color/grey_text2"
+                android:layout_marginTop="@dimen/size_20" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/quantity"
