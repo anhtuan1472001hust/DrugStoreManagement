@@ -13,8 +13,7 @@ public class AccountInfoFragment extends BaseFragment<FragmentAccountInfoBinding
 
     @Override
     public void onCommonViewLoaded() {
-        viewBinding.tvUserName.setText(Objects.requireNonNull(viewModel.userInfo().getValue()).getName());
-        viewBinding.tvUserPhone.setText(Objects.requireNonNull(viewModel.userInfo().getValue()).getPhoneNumber());
+
     }
 
     @Override
