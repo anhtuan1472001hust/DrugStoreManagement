@@ -3,6 +3,7 @@ package bk.pttkhdt.drugstoremanager.feature.auth.ui;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.util.Log;
 
 
 import bk.pttkhdt.drugstoremanager.core.base.BaseActivity;
@@ -44,6 +45,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, AuthView
         binding.getRoot().setPadding(0, 0, 0, 0);
         SharedPreferences sharedPreferences = getSharedPreferences(Constant.SHARED_PREFERENCE_FILE_NAME,Context.MODE_PRIVATE);
         String phoneNumber = sharedPreferences.getString(Constant.KEY_PHONE_NUMBER_PREF, Constant.EMPTY_STRING);
+        Log.e("Bello","phone123:" + phoneNumber);
         viewModel.checkExistedAccount(phoneNumber);
     }
 

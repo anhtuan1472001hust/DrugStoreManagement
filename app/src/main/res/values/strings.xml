@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Drug store manager</string>
-    <string name="hint_phone">Số điện thoại</string>
+    <string name="hint_phone">Email</string>
     <string name="hint_password">Mật khẩu</string>
     <string name="remember_me">Ghi nhớ</string>
     <string name="login">Đăng nhập</string>
@@ -13,7 +13,7 @@
     <string name="activity_send_otp_confirm_otp_send_label">Xác thực tài khoản</string>
     <string name="activity_send_otp_request_otp"><u>Gửi lại mã OTP</u></string>
     <string name="error_have_no_internet">Xin vui lòng kiểm tra kết nối mạng</string>
-    <string name="activity_add_member_Invalid_format_Phone_number">Sai định dạng số điện thoại</string>
+    <string name="activity_add_member_Invalid_format_Phone_number">Sai định dạng gmail</string>
     <string name="activity_send_otp_expired_otp_code">Mã OTP đã hết hiệu lực</string>
     <string name="activity_send_otp_failed_otp_code">Mã OTP không hợp lệ</string>
     <string name="activity_config_account_hint_confirm_password">Xác nhận mật khẩu</string>
@@ -32,7 +32,7 @@
     <string name="error_login">Mật khẩu không hợp lệ</string>
     <string name="logout">Đăng xuất</string>
     <string name="forgot_password">Quên mật khẩu</string>
-    <string name="forgot_password_guid">Nhập số điện thoại đã đăng ký, \nhệ thống sẽ gửi mã xác nhận cho bạn.</string>
+    <string name="forgot_password_guid">Nhập email đã đăng ký, \nhệ thống sẽ gửi mã xác nhận cho bạn.</string>
     <string name="drawer_menu_label_home">Trang chủ</string>
     <string name="drawer_menu_label_settings">Cài đặt</string>
     <string name="drawer_menu_label_logout">Đăng xuất</string>

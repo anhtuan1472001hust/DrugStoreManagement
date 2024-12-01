@@ -78,7 +78,7 @@
             android:layout_height="@dimen/size_48"
             android:background="@drawable/custom_edit_text"
             android:layout_marginTop="@dimen/size_19"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:hint="@string/hint_phone"
             android:paddingLeft="26dp"
             android:paddingRight="26dp"

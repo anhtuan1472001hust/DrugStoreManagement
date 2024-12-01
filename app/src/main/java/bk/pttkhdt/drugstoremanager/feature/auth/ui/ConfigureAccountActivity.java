@@ -3,9 +3,16 @@ package bk.pttkhdt.drugstoremanager.feature.auth.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import bk.pttkhdt.drugstoremanager.feature.main.ui.activity.MainActivity;
 import bk.pttkhdt.drugstoremanager.R;
@@ -19,6 +26,9 @@ public class ConfigureAccountActivity extends BaseActivity<ActivityConfigAccount
 
     boolean isPasswordVisible = false;
     boolean isConfirmPasswordVisible = false;
+
+    private FirebaseAuth auth;
+
 
     @Override
     protected ActivityConfigAccountBinding getViewBinding() {
@@ -46,6 +56,7 @@ public class ConfigureAccountActivity extends BaseActivity<ActivityConfigAccount
 
     @Override
     public void onCommonViewLoaded() {
+        auth = FirebaseAuth.getInstance();
         onLoading(false);
         binding.getRoot().setPadding(0, 0, 0, 0);
     }
@@ -83,7 +94,7 @@ public class ConfigureAccountActivity extends BaseActivity<ActivityConfigAccount
     }
 
     private void onClickBtnSend() {
-        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
+        Intent intent = getIntent();
         String password = binding.customEdtPassword.getText().toString();
         String confirmPassword = binding.customEdtConfirmPassword.getText().toString();
         if (password.isEmpty()) {
@@ -92,14 +103,61 @@ public class ConfigureAccountActivity extends BaseActivity<ActivityConfigAccount
             if (viewModel.checkValidPassword(binding.customEdtPassword.getText().toString())) {
                 if (password.equals(confirmPassword)) {
                     onLoading(true);
-                    viewModel.createUserWithPhoneAndPassword(confirmPassword, sharedPreferences.getString(Constant.KEY_PHONE_NUMBER_PREF, Constant.EMPTY_STRING));
-                    sharedPreferences.edit().putString(Constant.KEY_UID_PREF, FirebaseAuth.getInstance().getCurrentUser().getUid()).apply();
+                    registerWithEmailPassword(intent.getStringExtra(Constant.KEY_PHONE_NUMBER), confirmPassword);
+                    sendVerificationEmail(intent.getStringExtra(Constant.KEY_PHONE_NUMBER), confirmPassword);
                 } else {
                     showToastShort(getString(R.string.error_different_password));
                 }
             } else {
                 showToastShort(getString(R.string.activity_config_account_alert_config_account_label));
             }
+        }
+    }
+
+    private void registerWithEmailPassword(String email, String password) {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        onLoading(false);
+                        FirebaseUser user = auth.getCurrentUser();
+                        if (user != null) {
+                            user.sendEmailVerification()
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            Toast.makeText(ConfigureAccountActivity.this, "Please verify email link.", Toast.LENGTH_SHORT).show();
+                                            onLoading(false);
+                                        } else {
+                                            onLoading(false);
+                                        }
+                                    });
+                        }
+                    } else {
+                    }
+                });
+    }
+
+    private void sendVerificationEmail(String email, String password) {
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null) {
+            user.reload().addOnCompleteListener(reloadTask -> {
+                if (reloadTask.isSuccessful()) {
+                    if (user.isEmailVerified()) {
+                        onLoading(false);
+                        viewModel.createUserWithPhoneAndPassword(password, email);
+                        sharedPreferences.edit().putString(Constant.KEY_UID_PREF, FirebaseAuth.getInstance().getCurrentUser().getUid()).apply();
+                        Toast.makeText(ConfigureAccountActivity.this, "Verified, Register success.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        onLoading(false);
+                        Toast.makeText(ConfigureAccountActivity.this, "Please verify your email before proceeding.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    onLoading(false);
+                }
+            });
+        } else {
+            onLoading(false);
+            Toast.makeText(ConfigureAccountActivity.this, "Please verify your email before proceeding.", Toast.LENGTH_SHORT).show();
         }
     }
 }

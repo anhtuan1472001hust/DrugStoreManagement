@@ -4,6 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.method.PasswordTransformationMethod;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import bk.pttkhdt.drugstoremanager.databinding.ActivityLoginBinding;
 import bk.pttkhdt.drugstoremanager.feature.main.ui.activity.MainActivity;
@@ -15,6 +21,7 @@ import bk.pttkhdt.drugstoremanager.utils.Constant;
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, AuthViewModel> {
 
     boolean isPasswordVisible = false;
+    private FirebaseAuth auth;
 
     @Override
     protected ActivityLoginBinding getViewBinding() {
@@ -28,6 +35,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, AuthViewMo
 
     @Override
     public void onCommonViewLoaded() {
+        auth = FirebaseAuth.getInstance();
         binding.getRoot().setPadding(0, 0, 0, 0);
     }
 
@@ -46,7 +54,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, AuthViewMo
             }
             binding.edtPassword.setSelection(binding.edtPassword.length());
         });
-        binding.tvForgotPassword.setOnClickListener(v -> openActivity(ForgetPassActivity.class));
     }
 
     @Override
@@ -70,9 +77,22 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, AuthViewMo
     private void onClickBtnLogin() {
         String phoneNumber = binding.edtPhone.getText().toString();
         String password = binding.edtPassword.getText().toString();
-        if (viewModel.checkValidPhoneNumber(phoneNumber) && viewModel.checkValidPassword(password)) {
-            viewModel.loginRequest(phoneNumber, password);
+        if (viewModel.isValidGmail(phoneNumber) && viewModel.checkValidPassword(password)) {
+            loginWithEmailPassword(phoneNumber, password);
         }
+    }
+
+    private void loginWithEmailPassword(String email, String password) {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 

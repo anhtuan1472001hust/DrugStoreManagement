@@ -18,6 +18,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 import bk.pttkhdt.drugstoremanager.R;
 import bk.pttkhdt.drugstoremanager.core.base.BaseActivity;
 import bk.pttkhdt.drugstoremanager.databinding.ActivityMainBinding;
@@ -45,6 +47,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         viewModel.getListIndex();
         viewModel.getListSales();
         viewModel.getListBill();
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
+        String phoneNumber = sharedPreferences.getString(Constant.KEY_PHONE_NUMBER_PREF,Constant.EMPTY_STRING);
+        viewModel.queryUserInfo(phoneNumber);
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.light_background));
@@ -103,6 +108,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             }
             return true;
         });
+        binding.navHeaderMain.tvUserPhone.setText(phoneNumber);
     }
 
     @Override

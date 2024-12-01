@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "628723435383-0temom0q35u6iqpq6t0j0os6jgvrs7bs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "bk.pttkhdt.drugstoremanager",
-            "certificate_hash": "d7aba7ef4b6dc20fabada8aacb67dc30513db7da"
-          }
-        },
-        {
           "client_id": "628723435383-amr5f323lmht9pv8inqshb409fqvu5tn.apps.googleusercontent.com",
           "client_type": 3
         }

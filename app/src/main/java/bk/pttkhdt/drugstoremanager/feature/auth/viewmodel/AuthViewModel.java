@@ -91,7 +91,7 @@ public class AuthViewModel extends BaseViewModel {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber(formatPhoneNumber)
-                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setTimeout(90L, TimeUnit.SECONDS)
                         .setActivity(activity)
                         .setCallbacks(mCallBacks)
                         .build();
@@ -185,6 +185,11 @@ public class AuthViewModel extends BaseViewModel {
                 return false;
             }
         }
+    }
+
+    public boolean isValidGmail(String email) {
+        String gmailRegex = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+        return email.matches(gmailRegex);
     }
 
 

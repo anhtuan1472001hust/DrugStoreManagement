@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.util.Log;
 
 import com.mukesh.OnOtpCompletionListener;
 
@@ -71,9 +72,9 @@ public class ValidateOtpActivity extends BaseActivity<ActivityValidateOtpBinding
     }
 
     private void setOtpDuration() {
-        mCountDown = 60;
+        mCountDown = 90;
         if (countDownTimer == null) {
-            countDownTimer = new CountDownTimer(60000, 1000) {
+            countDownTimer = new CountDownTimer(90000, 1000) {
                 @SuppressLint("DefaultLocale")
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -98,6 +99,7 @@ public class ValidateOtpActivity extends BaseActivity<ActivityValidateOtpBinding
         Intent intent = getIntent();
         SharedPreferences sharedPreferences = getSharedPreferences(Constant.SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
         sharedPreferences.edit().putString(Constant.KEY_PHONE_NUMBER_PREF,intent.getStringExtra(Constant.KEY_PHONE_NUMBER)).apply();
+        Log.e("Bello","phoneNumber: " + intent.getStringExtra(Constant.KEY_PHONE_NUMBER));
         viewModel.requestOtp(intent.getStringExtra(Constant.KEY_PHONE_NUMBER), this);
         setOtpDuration();
     }
